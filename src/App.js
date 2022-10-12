@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Page } from "@shopify/polaris";
+import Cake from "./Components/Cake";
+import Icecream from "./Components/Icecream";
+import Chocklate from "./Components/Chocklate";
+import { connect } from "react-redux";
+import { mapToDispatch, mapToState } from "./Maps/Map";
 
-function App() {
+function App(props) {
+  // console.log(props)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Page>
+      <Cake />
+      <Icecream />
+      <Chocklate />
+    </Page>
   );
 }
 
-export default App;
+export default connect(mapToState,mapToDispatch)(App);
